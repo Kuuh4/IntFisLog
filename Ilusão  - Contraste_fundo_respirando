@@ -1,4 +1,10 @@
-//Copyright Derick Faria 2022.
+/*
+Feito no Processing 4
+
+https://github.com/Kuuh4/IntFisLog
+Copyright Derick Faria 2022.
+*/
+
 
 //Background
 int CorFundo;
