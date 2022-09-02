@@ -1,0 +1,39 @@
+//Copyright Derick Faria 2022.
+
+
+//Background
+int CorFundo;
+boolean CorFundoSubindo;
+
+void setup() {
+  size(500, 500);
+  //Background
+  { 
+    CorFundo=(0);
+    CorFundoSubindo=true;
+  }
+}
+
+
+void draw() {
+
+  //Background
+  {
+    println(CorFundo);
+    background(CorFundo);
+
+    if (CorFundoSubindo==true) {
+      CorFundo++;
+    } else {
+      CorFundo--;
+    }
+
+    if (CorFundo>254 || CorFundo<1) {
+      if (CorFundoSubindo==true) {
+        CorFundoSubindo=false;
+      } else {
+        CorFundoSubindo=true;
+      };
+    }
+  }
+}
