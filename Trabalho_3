@@ -1,1 +1,16 @@
-a
+/*
+fazer algo usando fontes.
+a fonte variar de tamanho respirando
+a ideia é ao clickar fazer o texto mudar. tipo homescreen do minecraft.
+    pra isso teria que montar um array com as frases prontas, e usar um randomise pra selecionar elas. 
+basicamente isso. Parece ser simples o suficiente pra ser executável, e lidar com a dor de cabeça de array sem ter maiores problemas.
+ */
+
+
+
+voidsetup() {
+
+
+}
+voiddraw() {
+}
