@@ -14,6 +14,7 @@ int CorBase;
 
 void setup() {
   size(500, 500);
+  frameRate(2000);
   //Background
   {
     CorFundo=(0);
@@ -64,4 +65,5 @@ void draw() {
     ellipse(325, 250, 50, 50);
   }
 }
+
 
