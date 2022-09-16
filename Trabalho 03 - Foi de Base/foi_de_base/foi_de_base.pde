@@ -83,15 +83,17 @@ String[] frases = {
   "Wipou"
 };
 
-//declaração das imagens
+//declaração das imagens e fontes
 PImage fundo; PImage mine;
+PFont minecraft_regular;
 
 void setup() {
   size(1280, 720);
   frameRate(5);
-  //carregar imagens
+  //carregar imagens e fontes
     fundo = loadImage("fundo1.png");
     mine = loadImage("mine.png");
+    minecraft_regular = createFont("MinecraftRegular-Bmg3.otf");
   //linhas de prompt teste inicial
     println("rodando...");
     println("Teste:");
