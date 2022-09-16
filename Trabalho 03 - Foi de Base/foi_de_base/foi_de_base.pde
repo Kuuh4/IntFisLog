@@ -114,12 +114,19 @@ void draw(){
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
     
-    fill(5,255);
-    text(frases[mouseX],643,293);
-    fill(250);
-    text(frases[mouseX],640,289);
     
-    
+    //Draw Text
+      //debug por meio do mouseX
+        fill(5,255);
+        text(frases[mouseX/16],643,293);
+        fill(255,247,15);
+        text(frases[mouseX/16],640,289);
+      
+      //Frase por variavel [int frase_atual] abaixo
+        //fill(5,255);
+        //text(frases[frase_atual],643,293);
+        //fill(255,247,15);
+        //text(frases[frase_atual],640,289);
 }
 
 void mousePressed() {
