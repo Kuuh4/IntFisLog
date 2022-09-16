@@ -83,6 +83,9 @@ String[] frases = {
   "Wipou"
 };
 
+//frase da vez
+int frase_atual;
+
 //declaração das imagens e fontes
 PImage fundo; PImage mine;
 PFont minecraft_regular;
@@ -93,7 +96,7 @@ void setup() {
   //carregar imagens e fontes
     fundo = loadImage("fundo1.png");
     mine = loadImage("mine.png");
-    minecraft_regular = createFont("MinecraftRegular-Bmg3.otf");
+    minecraft_regular = createFont("MinecraftRegular-Bmg3.otf",32);
   //linhas de prompt teste inicial
     println("rodando...");
     println("Teste:");
@@ -102,6 +105,7 @@ void setup() {
   //configurando texto
     textSize(36);
     textAlign(CENTER);
+    textFont(minecraft_regular);
 }
 
 void draw(){
@@ -109,11 +113,13 @@ void draw(){
     //Desenhar Imagens
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
-
-    text(frases[int(random(80))],640,291); 
-
+    
+    text(frases[frase_atual],640,291); 
+    
 }
 
 void mousePressed() {
-  println(frases[int(random(80))]);
+  int frase_atual = int(random(80));
+  println(frase_atual);
 }
+
