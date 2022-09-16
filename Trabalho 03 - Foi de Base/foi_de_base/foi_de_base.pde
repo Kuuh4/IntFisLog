@@ -114,10 +114,11 @@ void draw(){
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
     
+    fill(5,255);
+    text(frases[mouseX],643,293);
     fill(250);
-    text(frases[mouseX],640,291);
-    fill(20,10);
-    text(frases[mouseX],640,291);
+    text(frases[mouseX],640,289);
+    
     
 }
 
