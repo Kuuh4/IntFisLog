@@ -92,7 +92,7 @@ PFont minecraft_regular;
 
 void setup() {
   size(1280, 720);
-  frameRate(5);
+  frameRate(60);
   //carregar imagens e fontes
     fundo = loadImage("fundo1.png");
     mine = loadImage("mine.png");
@@ -114,7 +114,10 @@ void draw(){
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
     
-    text(frases[frase_atual],640,291); 
+    fill(250);
+    text(frases[mouseX],640,291);
+    fill(20,10);
+    text(frases[mouseX],640,291);
     
 }
 
@@ -122,4 +125,3 @@ void mousePressed() {
   int frase_atual = int(random(80));
   println(frase_atual);
 }
-
