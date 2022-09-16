@@ -86,8 +86,6 @@ String[] frases = {
 //declaração das imagens
 PImage fundo; PImage mine;
 
-
-
 void setup() {
   size(1280, 720);
   frameRate(5);
@@ -99,12 +97,19 @@ void setup() {
     println("Teste:");
     println(frases[int(random(80))]);
     println("pronto");
+  //configurando texto
+    textSize(36);
+    textAlign(CENTER);
 }
 
 void draw(){
     background(127);
-    image(fundo,0,0,1280,720);
-    image(mine,0,0,1280,720);
+    //Desenhar Imagens
+        image(fundo,0,0,1280,720);
+        image(mine,0,0,1280,720);
+
+    text(frases[int(random(80))],640,360); 
+
 }
 
 void mousePressed() {
