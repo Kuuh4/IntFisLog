@@ -108,7 +108,7 @@ void draw(){
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
 
-    text(frases[int(random(80))],640,360); 
+    text(frases[int(random(80))],640,291); 
 
 }
 
