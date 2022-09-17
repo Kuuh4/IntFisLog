@@ -139,9 +139,18 @@ void draw(){
         text("Você morreu!",645,204);
         fill(255);
         text("Você morreu!",640,198);
-    
-    
+        
+        
     textFont(minecraft_regular);
+        
+     //botões   
+        fill(250);
+        text("Renascer",640,427);
+        text("Fechar",640,504);
+    
+    
+    
+    
     //Draw Text [Um dos dois por vez]
       //debug por meio do mouseX
         //fill(5,255);
@@ -170,6 +179,16 @@ void draw(){
 
 //Switch por clique para trocar a frase [void mousePressed] [Desativar um dos dois]
 void mousePressed() {
+  //clickar no botão & alterar o número da array
+  if(mouseX>315&&mouseX<965&&mouseY>372&&mouseY<434){
   frase_atual = int(random(80));
   println(frase_atual);
+  }
+  
+  //clickar no botão & fechar o programa
+  if(mouseX>315&&mouseX<965&&mouseY>450&&mouseY<512){
+  exit();
+  }
+  
+  
 }
