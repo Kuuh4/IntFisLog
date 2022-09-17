@@ -111,16 +111,26 @@ void setup() {
 }
 
 void draw(){
-    background(127);
+
     //Desenhar Imagens
         image(fundo,0,0,1280,720);
-        image(mine,0,0,1280,720);
+        
+    
+    //Interface do Mine
+      //Sobreposição vermelha
+        noStroke();
+        fill(#FF0005,100);
+        rect(0,0,1280,720);
+        
+      //botões mine
+      image(mine,0,0,1280,720);
+            
     
     textFont(minecraft_titulo);
         fill(3,255);
-        text("Você morreu!",655,204);
+        text("Você morreu!",645,204);
         fill(255);
-        text("Você morreu!",650,198);
+        text("Você morreu!",640,198);
     
     
     textFont(minecraft_regular);
@@ -133,9 +143,9 @@ void draw(){
       
       //Frase por variavel [int frase_atual], alterada por clique.
         fill(5,255);
-        text(frases[frase_atual],654,294);
+        text(frases[frase_atual],644,294);
         fill(255,247,15);
-        text(frases[frase_atual],650,290);
+        text(frases[frase_atual],640,290);
                 
     //Switch por clique para trocar a frase [void draw] [Desativar um dos dois]
         /*
