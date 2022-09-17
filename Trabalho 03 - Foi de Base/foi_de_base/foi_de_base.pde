@@ -85,6 +85,7 @@ String[] frases = {
 
 //frase da vez
 int frase_atual;
+boolean faz_uma_vez = false;
 
 //declaração das imagens e fontes
 PImage fundo; PImage mine;
@@ -115,21 +116,35 @@ void draw(){
         image(mine,0,0,1280,720);
     
     
-    //Draw Text
+    //Draw Text [Um dos dois por vez]
       //debug por meio do mouseX
-        fill(5,255);
-        text(frases[mouseX/16],643,293);
-        fill(255,247,15);
-        text(frases[mouseX/16],640,289);
-      
-      //Frase por variavel [int frase_atual] abaixo
         //fill(5,255);
-        //text(frases[frase_atual],643,293);
+        //text(frases[mouseX/16],643,293);
         //fill(255,247,15);
-        //text(frases[frase_atual],640,289);
+        //text(frases[mouseX/16],640,289);
+      
+      //Frase por variavel [int frase_atual], alterada por clique.
+        fill(5,255);
+        text(frases[frase_atual],643,293);
+        fill(255,247,15);
+        text(frases[frase_atual],640,289);
+                
+    //Switch por clique para trocar a frase [void draw] [Desativar um dos dois]
+        /*
+        if(mousePressed==true && faz_uma_vez==false){
+          frase_atual = int(random(80));
+          faz_uma_vez=true;
+        }
+        if(mousePressed==false){
+        faz_uma_vez=false;
+        }
+        */
 }
 
+
+//Switch por clique para trocar a frase [void mousePressed] [Desativar um dos dois]
 void mousePressed() {
-  int frase_atual = int(random(80));
+  frase_atual = int(random(80));
   println(frase_atual);
 }
+
