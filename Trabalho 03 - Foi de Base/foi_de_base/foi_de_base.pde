@@ -97,14 +97,13 @@ void setup() {
   //carregar imagens e fontes
     fundo = loadImage("fundo1.png");
     mine = loadImage("mine.png");
-    minecraft_regular = createFont("MinecraftRegular-Bmg3.otf",32);
+    minecraft_regular = createFont("Minecraftia-Regular.ttf",24);
   //linhas de prompt teste inicial
     println("rodando...");
     println("Teste:");
     println(frases[int(random(80))]);
     println("pronto");
   //configurando texto
-    textSize(36);
     textAlign(CENTER);
     textFont(minecraft_regular);
 }
@@ -119,15 +118,15 @@ void draw(){
     //Draw Text [Um dos dois por vez]
       //debug por meio do mouseX
         //fill(5,255);
-        //text(frases[mouseX/16],643,293);
+        //text(frases[mouseX/16],643,307);
         //fill(255,247,15);
-        //text(frases[mouseX/16],640,289);
+        //text(frases[mouseX/16],640,303);
       
       //Frase por variavel [int frase_atual], alterada por clique.
         fill(5,255);
-        text(frases[frase_atual],643,293);
+        text(frases[frase_atual],643,307);
         fill(255,247,15);
-        text(frases[frase_atual],640,289);
+        text(frases[frase_atual],640,303);
                 
     //Switch por clique para trocar a frase [void draw] [Desativar um dos dois]
         /*
@@ -147,4 +146,3 @@ void mousePressed() {
   frase_atual = int(random(80));
   println(frase_atual);
 }
-
