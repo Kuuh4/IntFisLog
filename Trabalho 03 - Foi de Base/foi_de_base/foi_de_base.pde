@@ -90,6 +90,7 @@ boolean faz_uma_vez = false;
 //declaração das imagens e fontes
 PImage fundo; PImage mine;
 PFont minecraft_regular;
+PFont minecraft_titulo;
 
 void setup() {
   size(1280, 720);
@@ -98,6 +99,7 @@ void setup() {
     fundo = loadImage("fundo1.png");
     mine = loadImage("mine.png");
     minecraft_regular = createFont("Minecraftia-Regular.ttf",24);
+    minecraft_titulo = createFont("Minecraftia-Regular.ttf",42);
   //linhas de prompt teste inicial
     println("rodando...");
     println("Teste:");
@@ -114,7 +116,14 @@ void draw(){
         image(fundo,0,0,1280,720);
         image(mine,0,0,1280,720);
     
+    textFont(minecraft_titulo);
+        fill(3,255);
+        text("Você morreu!",655,204);
+        fill(255);
+        text("Você morreu!",650,198);
     
+    
+    textFont(minecraft_regular);
     //Draw Text [Um dos dois por vez]
       //debug por meio do mouseX
         //fill(5,255);
@@ -124,9 +133,9 @@ void draw(){
       
       //Frase por variavel [int frase_atual], alterada por clique.
         fill(5,255);
-        text(frases[frase_atual],643,307);
+        text(frases[frase_atual],654,294);
         fill(255,247,15);
-        text(frases[frase_atual],640,303);
+        text(frases[frase_atual],650,290);
                 
     //Switch por clique para trocar a frase [void draw] [Desativar um dos dois]
         /*
