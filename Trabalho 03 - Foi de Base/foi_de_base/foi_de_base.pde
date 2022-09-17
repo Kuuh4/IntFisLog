@@ -108,6 +108,8 @@ void setup() {
   //configurando texto
     textAlign(CENTER);
     textFont(minecraft_regular);
+  //Config Assets
+    rectMode(CENTER);
 }
 
 void draw(){
@@ -120,10 +122,16 @@ void draw(){
       //Sobreposição vermelha
         noStroke();
         fill(#FF0005,100);
-        rect(0,0,1280,720);
+        rect(640,360,1280,720);
         
       //botões mine
       image(mine,0,0,1280,720);
+      fill(2,220);
+      rect(640,333,28,3);
+      rect(640,333,3,28);
+      fill(2);
+      rect(640,333,28,1);
+      rect(640,333,1,28);
             
     
     textFont(minecraft_titulo);
