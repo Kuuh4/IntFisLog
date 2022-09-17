@@ -14,7 +14,7 @@ int CorBase;
 
 void setup() {
   size(500, 500);
-  frameRate(2000);
+  frameRate(60);
   //Background
   {
     CorFundo=(0);
