@@ -10,4 +10,7 @@ http://bonelli.usuarios.rdc.puc-rio.br/dsg1412/aula09/comunica_arduino_p5.html
 
 */
 
-sizeeeee
+size (1000,1000);
+
+ellipseMode(CENTER);
+ellipse(250, 250, 50, 50);
