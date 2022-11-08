@@ -11,11 +11,11 @@
  
 float x;
 float y;
-//float easing = 0.05;
+float easing = 0.05;
 
 void setup() {
-  //fullScreen();
-  size(200,200);
+  fullScreen();
+  //size(200,200);
   noStroke();  
 }
 
@@ -28,7 +28,7 @@ void draw() {
  
   
   x = x + ((mouseX-x)*0.05);
-  y = y + ((mouseX-y)*0.05);
+  y = y + ((mouseY-y)*0.05);
   
   
   /* 
