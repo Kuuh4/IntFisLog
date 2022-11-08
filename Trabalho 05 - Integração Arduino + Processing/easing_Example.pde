@@ -11,16 +11,27 @@
  
 float x;
 float y;
-float easing = 0.05;
+//float easing = 0.05;
 
 void setup() {
-  size(640, 360); 
+  //fullScreen();
+  size(200,200);
   noStroke();  
 }
 
 void draw() { 
   background(51);
   
+  ellipse(mouseX,mouseY,20,20);
+  ellipse(x,0,20,20);
+  ellipse(0,y,20,20);
+ 
+  
+  x = x + ((mouseX-x)*0.05);
+  y = y + ((mouseX-y)*0.05);
+  
+  
+  /* 
   float targetX = mouseX;
   float dx = targetX - x;
   x += dx * easing;
@@ -29,5 +40,6 @@ void draw() {
   float dy = targetY - y;
   y += dy * easing;
   
-  ellipse(x, y, 66, 66);
+  ellipse(mouseX, mouseY, x, y);
+  */
 }
