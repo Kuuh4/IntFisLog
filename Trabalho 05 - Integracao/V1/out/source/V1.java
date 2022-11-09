@@ -32,19 +32,20 @@ float easing = 0.05f;
 int a = color(255, 255, 255);
 int ba = color(0, 255, 255);
 int be = color(255, 255, 0);
-float tam_tela_angular = sqrt(sq(width)+sq(height));
+
 
  public void setup() {
   //fullScreen();
   /* size commented out by preprocessor */;
   noStroke();  
   noCursor();
-
+  
 }
+
 
  public void draw() { 
   background(51);
-
+    float tam_tela_angular = sqrt(sq(width)+sq(height));
     float targetX = mouseX;
     float dx = targetX - x;
     x += dx * 0.05f;
@@ -77,12 +78,12 @@ float tam_tela_angular = sqrt(sq(width)+sq(height));
   
 
 
-  println(distancia_percentil);
+  println(tam_tela_angular);
   
 }
 
 
-  public void settings() { size(200, 200); }
+  public void settings() { size(600, 600); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "V1" };
