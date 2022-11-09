@@ -45,7 +45,7 @@ int be = color(255, 255, 0);
 
  public void draw() { 
   background(51);
-    float tam_tela_angular = sqrt(sq(width)+sq(height));
+    
     float targetX = mouseX;
     float dx = targetX - x;
     x += dx * 0.05f;
@@ -54,19 +54,18 @@ int be = color(255, 255, 0);
     float dy = targetY - y;
     y += dy * 0.05f;
 
-  
-  float distancia_percentil = (sqrt(sq(dx)+sq(dy)))/tam_tela_angular;
+    float tam_tela_angular = sqrt(sq(width)+sq(height));
+    float distancia_percentil = (sqrt(sq(dx)+sq(dy)))/tam_tela_angular;
+    int b = lerpColor(ba, be, distancia_percentil);
 
-  int b = lerpColor(ba, be, distancia_percentil);
-
-  fill(b);
-  ellipse(mouseX,mouseY,20,20);
-  fill(a);
-  ellipse(x,y,20,20);
-  ellipse(x,0,20,20);
-  ellipse(0,y,20,20);
-  ellipse(x,height,20,20);
-  ellipse(width,y,20,20);
+    fill(b);
+    ellipse(mouseX,mouseY,20,20);
+    fill(a);
+    ellipse(x,y,20,20);
+    ellipse(x,0,20,20);
+    ellipse(0,y,20,20);
+    ellipse(x,height,20,20);
+    ellipse(width,y,20,20);
   
  
   /*
