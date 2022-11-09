@@ -1,17 +1,46 @@
-// Declare and construct two objects (h1, h2) from the class HLine 
+Bola b1;
 
-Bola b1 = new Bola(100,100);
-
-void setup() 
-{
-  size(200, 200);
-  //fullScreen();
-  frameRate(30);
-  ellipseMode(CENTER);    
+void setup(){
+    size(300,300);
+    b1 = new Bola();
 }
 
-void draw() { 
-  background(204);
-  b1.update();
-} 
- 
+void draw(){
+    background(128);
+    
+    b1.mover();
+    b1.ascend();
+    
+
+}
+
+void mousePressed(){
+    b1.pop();
+}
+
+
+
+
+class Bola{
+    float x;
+    float y;
+
+    Bola(){
+        x=width/2;
+        y=height;
+    }
+
+    void ascend(){
+        y--;
+    }
+
+    void mover(){
+        ellipse(x,y,20,20);
+    }
+
+    void pop(){
+        fill(255, 0, 0);
+    }
+
+
+}
