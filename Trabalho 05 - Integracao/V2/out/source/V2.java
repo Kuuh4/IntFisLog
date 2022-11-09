@@ -16,10 +16,15 @@ import java.io.IOException;
 public class V2 extends PApplet {
 
 Bola b1;
+Bola b2;
+Bola b3;
 
  public void setup(){
     /* size commented out by preprocessor */;
-    b1 = new Bola();
+  //b0 = new Bola(x,y,diameter,cor);  
+    b1 = new Bola(100,50,64,color(255, 0, 0));
+    b2 = new Bola(100,50,64,color(0, 255, 0));
+    b3 = new Bola(20,70,33,color(132));
 }
 
  public void draw(){
@@ -27,6 +32,13 @@ Bola b1;
     
     b1.mover();
     b1.ascend();
+    
+    b2.mover();
+    b2.ascend();
+    
+    b3.mover();
+    b3.ascend();
+    
     
 
 }
@@ -41,18 +53,25 @@ Bola b1;
 class Bola{
     float x;
     float y;
+    float diameter;
+    int cor;
+    
+    Bola(float tX, float tY,float tdiameter, int tCor){
+        x=tX+width/2;
+        y=tY+height;
+        diameter = tdiameter ;
+        cor = tCor;
 
-    Bola(){
-        x=width/2;
-        y=height;
+        fill(tCor);
     }
 
      public void ascend(){
         y--;
+        x=x+random(-2,2);
     }
 
      public void mover(){
-        ellipse(x,y,20,20);
+        ellipse(x,y,diameter,diameter);
     }
 
      public void pop(){
