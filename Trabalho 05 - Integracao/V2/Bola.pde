@@ -10,7 +10,7 @@ class Bola{
         diameter = tdiameter ;
         cor = tCor;
 
-        fill();
+        fill(cor);
     }
 
     void ascend(){
