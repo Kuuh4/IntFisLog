@@ -15,9 +15,7 @@ import java.io.IOException;
 
 public class V2 extends PApplet {
 
-float x;
-float y;
-float arrancada = 0.05f;
+
 int a = color(255, 255, 255);
 int ba = color(0, 255, 255);
 int be = color(255, 255, 0);
@@ -35,40 +33,21 @@ int be = color(255, 255, 0);
 
  public void draw() { 
   background(51);
-    //declarações p/ tracking
-    float targetX = mouseX;
-    float dx = targetX - x;
-    float targetY = mouseY;
-    float dy = targetY - y;
-    
+
 
     // Calor da cor baseado na proximidade da bolaMouse
     float tam_tela_min = min(width,height);
     float distancia_mouse = dist(mouseX, mouseY, x, y);
     float variacao_cor = distancia_mouse/tam_tela_min;
-   
-    //continuação tracking. If para reduzir necessidade de calculo quando em standby.
-    if (distancia_mouse<=0.5f) {
-      x = mouseX;
-      y = mouseY;
-      
-    } else {
-      x += dx * arrancada;
-      y += dy * arrancada;
-      
-    }
-    
+       
 
     int b = lerpColor(ba, be,variacao_cor);
 
     fill(b);
     ellipse(mouseX,mouseY,20,20);
     fill(a);
-    ellipse(x,y,20,20);
-    ellipse(x,0,20,20);
-    ellipse(0,y,20,20);
-    ellipse(x,height,20,20);
-    ellipse(width,y,20,20);
+
+    
   
  
   /*
@@ -82,6 +61,22 @@ int be = color(255, 255, 0);
 
   println(variacao_cor);
   
+}
+//colocar todos os elementos necessários para uma bola
+
+class Bola {
+  float x, y;
+  float arrancada = 0.05f;
+
+  float targetX = mouseX;
+    float dx = targetX - x;
+  float targetY = mouseY;
+    float dy = targetY - y;
+
+  float distancia_mouse = dist(mouseX, mouseY, x, y);
+
+
+ 
 }
 
 
