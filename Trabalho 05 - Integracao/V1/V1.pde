@@ -18,8 +18,8 @@ color be = color(255, 255, 0);
 
 
 void setup() {
-  //fullScreen();
-  size(600,600);
+  fullScreen();
+  //size(600,600);
   noStroke();  
   noCursor();
   
@@ -40,15 +40,16 @@ void draw() {
     float tam_tela_angular = sqrt(sq(width)+sq(height));
     float distancia_percentil = (sqrt(sq(dx)+sq(dy)))/tam_tela_angular;
     color b = lerpColor(ba, be, distancia_percentil);
-
+    
+    ellipse(x,y,20,20);
+    //ellipse(x,0,20,20);
+    //ellipse(0,y,20,20);
+    //ellipse(x,height,20,20);
+    //ellipse(width,y,20,20);
     fill(b);
     ellipse(mouseX,mouseY,20,20);
     fill(a);
-    ellipse(x,y,20,20);
-    ellipse(x,0,20,20);
-    ellipse(0,y,20,20);
-    ellipse(x,height,20,20);
-    ellipse(width,y,20,20);
+
   
  
   /*

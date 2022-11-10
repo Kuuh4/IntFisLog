@@ -1,8 +1,4 @@
-//última versão não instanciada
-
-float x;
-float y;
-float arrancada = 0.05;
+float x, y, arrancada;
 color a = color(255, 255, 255);
 color ba = color(0, 255, 255);
 color be = color(255, 255, 0);
@@ -20,7 +16,7 @@ void setup() {
 
 void draw() { 
   background(51);
-  
+
     //declarações p/ tracking
     float targetX = mouseX;
     float dx = targetX - x;
@@ -32,18 +28,7 @@ void draw() {
     float tam_tela_min = min(width,height);
     float distancia_mouse = dist(mouseX, mouseY, x, y);
     float variacao_cor = distancia_mouse/tam_tela_min;
-   
-    //continuação tracking. If para reduzir necessidade de calculo quando em standby.
-    if (distancia_mouse<=0.5) {
-      x = mouseX;
-      y = mouseY;
-      
-    } else {
-      x += dx * arrancada;
-      y += dy * arrancada;
-      
-    }
-    
+       
 
     color b = lerpColor(ba, be,variacao_cor);
 
