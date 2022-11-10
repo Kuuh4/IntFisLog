@@ -17,11 +17,18 @@ public class V3 extends PApplet {
 
 //declaração da bariavel da função nova
 Bola b1;
+Bola b2;
+Bola b3;
 
  public void setup() {
     /* size commented out by preprocessor */;
     //criação do objeto
     b1 = new Bola(0.05f);
+    b2 = new Bola(0.04f);
+    b3 = new Bola(0.03f);
+
+    fill(255);
+    noStroke();
 
 }
 
@@ -29,6 +36,8 @@ Bola b1;
     background(0);
 
     b1.update();
+    b2.update();
+    b3.update();
 }
 class Bola{
     //variáveis
