@@ -16,7 +16,7 @@ void setup() {
 }
 
 void draw() {
-    background(0);
+    background(128);
 
     ellipse(mouseX, mouseY, 20, 20);
     b3.update();
