@@ -21,12 +21,13 @@ class Bubble{
     }
 
     void mover(){
+        fill(colour);
         ellipse(x,y,diameter,diameter);
         //line(0 , y, width, y);
     }
 
     void pop(){
-        fill(random(0,255),random(0,255),random(0,255));
+        colour = color(random(0,255),random(0,255),random(0,255));
     }
 
     void debug(){

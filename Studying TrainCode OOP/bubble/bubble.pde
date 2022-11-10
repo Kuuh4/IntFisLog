@@ -5,9 +5,9 @@ Bubble b3;
 void setup(){
     size(300,300);
   //b0 = new Bubble(x,y,diameter,colorr);  
-    b1 = new Bubble(100,50,64,color(#ffffff));
+    b1 = new Bubble(150,50,64,color(#ffffff));
     b2 = new Bubble(100,50,64,color(#000000));
-    b3 = new Bubble(20,70,33,color(#aaaaaa));
+    b3 = new Bubble(50,70,33,color(#ccff00));
 }
 
 void draw(){
@@ -29,4 +29,6 @@ void draw(){
 
 void mousePressed(){
     b1.pop();
+    b2.pop();
+    b3.pop();
 }

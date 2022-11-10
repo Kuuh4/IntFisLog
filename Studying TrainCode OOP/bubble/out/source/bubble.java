@@ -22,9 +22,9 @@ Bubble b3;
  public void setup(){
     /* size commented out by preprocessor */;
   //b0 = new Bubble(x,y,diameter,colorr);  
-    b1 = new Bubble(100,50,64,color(0xFFFFFFFF));
+    b1 = new Bubble(150,50,64,color(0xFFFFFFFF));
     b2 = new Bubble(100,50,64,color(0xFF000000));
-    b3 = new Bubble(20,70,33,color(0xFFAAAAAA));
+    b3 = new Bubble(50,70,33,color(0xFFCCFF00));
 }
 
  public void draw(){
@@ -39,13 +39,15 @@ Bubble b3;
     b3.mover();
     b3.ascend();
     
-    //b1.debug();
-    //b3.debug();
-    println(color(0xFFFFFFFF));
+    b1.debug();
+    b3.debug();
+
 }
 
  public void mousePressed(){
     b1.pop();
+    b2.pop();
+    b3.pop();
 }
 class Bubble{
     float x;
@@ -70,12 +72,13 @@ class Bubble{
     }
 
      public void mover(){
+        fill(colour);
         ellipse(x,y,diameter,diameter);
         //line(0 , y, width, y);
     }
 
      public void pop(){
-        fill(random(0,255),random(0,255),random(0,255));
+        colour = color(random(0,255),random(0,255),random(0,255));
     }
 
      public void debug(){
