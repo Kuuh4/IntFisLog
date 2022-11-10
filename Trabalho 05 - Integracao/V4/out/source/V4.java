@@ -20,36 +20,73 @@ Bola b1;
 Bola b2;
 Bola b3;
 
+float tam_tela_min;
+float diagonal_tela;
+int backgroundx;
+boolean switch_bg;
+
+
+int main_color = color(255, 255, 255);
+int gradA_color = color(255, 255, 255);
+int gradB_color = color(255, 0, 0);
+
  public void setup() {
     /* size commented out by preprocessor */;
+    //fullScreen();
+    
+    diagonal_tela = dist(0,0,width,height);
+    tam_tela_min = min(width,height);
+    backgroundx=0;
+    
     //criação do objeto
     b1 = new Bola(0.08f);
     b2 = new Bola(0.04f);
     b3 = new Bola(0.02f);
 
-    fill(255);
+    
+    noCursor();
     noStroke();
-
 }
 
  public void draw() {
-    background(128);
 
-    ellipse(mouseX, mouseY, 20, 20);
-    b3.update();
-    b2.update();
-    b1.update();
+    //plano de fundo variável
+        if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
+        if(backgroundx<=0){ switch_bg = true;}
+        if(backgroundx>=255){ switch_bg = false;}
+
+        //println(switch_bg+" | "+backgroundx); //debug cor fundo
+        background(backgroundx,backgroundx,255-backgroundx);
+
+    //bolas que seguem    
+        b3.update();
+        b2.update();
+        b1.update();
+
+        println(b3.variacao_size);
+    
+    //bola mouse
+        fill(main_color);
+        ellipse(mouseX, mouseY, b1.diameter*(1-b1.variacao_cor), b1.diameter*(1-b1.variacao_cor));
 }
 class Bola{
     //variáveis declaradas
-    float accel;
-    float x, y, dx, dy, targetx, targety, distancia_mouse, variacao_cor;
+    float accel, diameter;
+    float x, y, dx, dy, targetx, targety, distancia_mouse, variacao_cor, variacao_size;
 
 //constructors
     Bola(float tempAccel){
         //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
         accel = tempAccel;
+        diameter = tam_tela_min/8;
     }
+
+    Bola(float tempAccel,float tempDiameter){
+        //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
+        accel = tempAccel;
+        diameter = tempDiameter;
+    }
+    
 
 //Functions
 
@@ -57,33 +94,33 @@ class Bola{
 
         //inicializando e usando as variáveis
         
-        targetx = mouseX;
-        targety = mouseY;
-        dx = targetx - x;
-        dy = targety - y;
+        targetx = mouseX; targety = mouseY;
+        dx = targetx - x; dy = targety - y;
         
-        float tam_tela_min = min(width,height);
-        float distancia_mouse = dist(mouseX,mouseY,x,y);
-        println(distancia_mouse);
+        //calculando a distancia linear da bola ate o mouse
+        distancia_mouse = dist(mouseX,mouseY,x,y);
         
+        //calculando a posicao da bola
         if (distancia_mouse>=0.5f){
-            x += dx * accel;
-            y += dy * accel;
-        }else {
-            x = mouseX;
-            y = mouseY;
+            x += dx * accel; y += dy * accel;
+            //criando uma variacao de valores de 0 para 1 baseado na distancia e tamanho da tela
+            variacao_cor = distancia_mouse/(tam_tela_min/2);
+        } else {
+            x = mouseX; y = mouseY;
+            variacao_cor = distancia_mouse/tam_tela_min;
         }
 
-        variacao_cor = distancia_mouse/tam_tela_min;
-
+        variacao_size = distancia_mouse/diagonal_tela;
+        
+        fill(lerpColor(gradA_color, gradB_color, variacao_cor));
 
         //usando as variáveis
-        ellipse(x, y, 20, 20);
+        ellipse(x, y, diameter*(1-variacao_size), diameter*(1-variacao_size));
     }
 }
 
 
-  public void settings() { size(400, 400); }
+  public void settings() { size(500, 400); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "V4" };
