@@ -5,9 +5,9 @@ Bola b3;
 void setup(){
     size(300,300);
   //b0 = new Bola(x,y,diameter,cor);  
-    b1 = new Bola(100,50,64,color(1));
+    b1 = new Bola(100,50,64,color(#ffffff));
     b2 = new Bola(100,50,64,color(50));
-    b3 = new Bola(20,70,33,color(70));
+    b3 = new Bola(20,70,33,color(ffffff));
 }
 
 void draw(){
@@ -21,6 +21,8 @@ void draw(){
     
     b3.mover();
     b3.ascend();
+
+    b1.debug();
     
     
 
@@ -29,7 +31,3 @@ void draw(){
 void mousePressed(){
     b1.pop();
 }
-
-
-
-
