@@ -1,30 +1,24 @@
-class Bola{
-    float x;
-    float y;
-    float diameter;
-    color cor;
-    
-    Bola(float tX, float tY,float tdiameter, color tCor){
-        x=tX+width/2;
-        y=tY+height;
-        diameter = tdiameter ;
-        cor = tCor;
+//colocar todos os elementos necessários para uma bola
 
-        fill(cor);
-    }
+class Bola {
+  float x, y;
+  float arrancada = 0.05;
 
-    void ascend(){
-        y--;
-        x=x+random(-2,2);
-    }
+  float targetX = mouseX;
+    float dx = targetX - x;
+  float targetY = mouseY;
+    float dy = targetY - y;
 
-    void mover(){
-        ellipse(x,y,diameter,diameter);
-    }
-
-    void pop(){
-        fill(255, 0, 0);
-    }
+  float distancia_mouse = dist(mouseX, mouseY, x, y);
 
 
+  if (distancia_mouse<= 0.5){
+    x = mouseX;
+    y = mouseY;
+  } else {
+    x += dx * arrancada;
+    y += dy * arrancada;
+  }
+
+  ellipse(x, y, 20, 20);
 }
