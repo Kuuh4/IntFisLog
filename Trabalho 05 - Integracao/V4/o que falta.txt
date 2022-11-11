@@ -1,1 +1,2 @@
 integrar arduino com firmata (foda)
+Uma opção de trilha seria cada bola ter como target a bola anterior. não sei como fazer isso (deve ser melhor fazer as bolas em array antes!!!)
