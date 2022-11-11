@@ -41,7 +41,6 @@ class Bola{
 
         variacao_size = distancia_mouse/diagonal_tela;
         
-        //noFill();
         fill(lerpColor(gradA_color, gradB_color, variacao_cor));
 
         //usando as variáveis

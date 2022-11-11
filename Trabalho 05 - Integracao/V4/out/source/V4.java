@@ -16,9 +16,9 @@ import java.io.IOException;
 public class V4 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola b1;
-Bola b2;
-Bola b3;
+Bola[] bolas = new Bola[1000];
+float varAccel = (2);
+int accelFormula = 1;
 
 float tam_tela_min;
 float diagonal_tela;
@@ -31,7 +31,7 @@ int gradA_color = color(255, 255, 255);
 int gradB_color = color(255, 0, 0);
 
  public void setup() {
-    //size(500,400);
+    //size(500,400,P2D);
     /* size commented out by preprocessor */;
     
     diagonal_tela = dist(0,0,width,height);
@@ -39,10 +39,12 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    b1 = new Bola(0.08f);
-    b2 = new Bola(0.04f);
-    b3 = new Bola(0.02f);
-
+    if (accelFormula==1) {
+        for (int i = 0; i < bolas.length; ++i) {
+        bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
+    }    
+    }
+    
     
     noCursor();
     noStroke();
@@ -50,25 +52,14 @@ int gradB_color = color(255, 0, 0);
 
  public void draw() {
 
-    //plano de fundo variável
-        if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
-        if(backgroundx<=0){ switch_bg = true;}
-        if(backgroundx>=255){ switch_bg = false;}
+    planodefundo();
+    bolamouse();
+    bolasseguirem();
 
-        //println(switch_bg+" | "+backgroundx); //debug cor fundo
-        //background(backgroundx,backgroundx,255-backgroundx);
-        background(128);
-    //bolas que seguem    
-        b3.update();
-        b2.update();
-        b1.update();
-
-        println(b3.variacao_size);
-    
-    //bola mouse
-        fill(main_color);
-        ellipse(mouseX, mouseY, b1.diameter*(1-b1.variacao_size), b1.diameter*(1-b1.variacao_size));
+        //println(bolas[2].variacao_size);
 }
+
+
 class Bola{
     //variáveis declaradas
     float accel, diameter;
@@ -112,15 +103,44 @@ class Bola{
 
         variacao_size = distancia_mouse/diagonal_tela;
         
+        //noFill();
         fill(lerpColor(gradA_color, gradB_color, variacao_cor));
 
         //usando as variáveis
         ellipse(x, y, diameter*(1-variacao_size), diameter*(1-variacao_size));
     }
 }
+ public void planodefundo(){
+    //Planos de fundo
+        //plano de fundo variável
+            if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
+            if(backgroundx<=0){ switch_bg = true;}
+            if(backgroundx>=255){ switch_bg = false;}
+
+            //println(switch_bg+" | "+backgroundx); //debug cor fundo
+            //background(backgroundx,backgroundx,255-backgroundx);
+        
+        //plano de fundo simples
+            background(128);
 
 
-  public void settings() { fullScreen(); }
+}
+
+ public void bolasseguirem(){
+    //bolas que seguem    
+         for (int i = 0; i < bolas.length; ++i) {
+        bolas[i].update();
+    }
+}
+
+ public void bolamouse(){
+    //bola mouse
+        fill(main_color);
+        ellipse(mouseX, mouseY, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+}
+
+
+  public void settings() { fullScreen(P2D); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "V4" };
