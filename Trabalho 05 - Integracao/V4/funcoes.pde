@@ -12,7 +12,14 @@ void planodefundo(){
             background(128);
 }
 
-void bolasseguirem(){
+void bolasseguiremA(){
+    //bolas que seguem    
+        for (int i = (bolas.length-1); i >= 0 ; --i) {
+        bolas[i].update();
+        }
+}
+
+void bolasseguiremB(){
     //bolas que seguem    
          for (int i = 0; i < bolas.length; ++i) {
         bolas[i].update();
@@ -22,5 +29,15 @@ void bolasseguirem(){
 void bolamouse(){
     //bola mouse
         fill(main_color);
-        ellipse(mouseX, mouseY, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+}
+
+void input_pos_aleatorio(){
+    pos_x=int(random(0,width));
+    pos_y=int(random(0,height));
+}
+
+void input_mouse(){
+    pos_x = mouseX;
+    pos_y = mouseY;
 }

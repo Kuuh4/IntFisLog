@@ -16,7 +16,7 @@ import java.io.IOException;
 public class V4 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[1000];
+Bola[] bolas = new Bola[5000];
 float varAccel = (2);
 int accelFormula = 1;
 
@@ -25,6 +25,8 @@ float diagonal_tela;
 int backgroundx;
 boolean switch_bg;
 
+int pos_x;
+int pos_y;
 
 int main_color = color(255, 255, 255);
 int gradA_color = color(255, 255, 255);
@@ -40,7 +42,7 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    formulaAccel_B();
+    formulaAccel_A();
     
     
     noCursor();
@@ -48,15 +50,22 @@ int gradB_color = color(255, 0, 0);
 }
 
  public void draw() {
+
+    //input_mouse();
+    
     planodefundo();
-    bolasseguirem();
+    bolasseguiremA();
     bolamouse();
 
+}
+
+ public void mouseClicked(){
+    input_pos_aleatorio();
 }
 class Bola{
     //variáveis declaradas
     float accel, diameter;
-    float x, y, dx, dy, targetx, targety, distancia_mouse, variacao_cor, variacao_size;
+    float x, y, dx, dy, targetx, targety, distancia_pos, variacao_cor, variacao_size;
 
 //constructors
     Bola(float tempAccel){
@@ -78,23 +87,23 @@ class Bola{
 
         //inicializando e usando as variáveis
         
-        targetx = mouseX; targety = mouseY;
+        targetx = pos_x; targety = pos_y;
         dx = targetx - x; dy = targety - y;
         
         //calculando a distancia linear da bola ate o mouse
-        distancia_mouse = dist(mouseX,mouseY,x,y);
+        distancia_pos = dist(pos_x,pos_y,x,y);
         
         //calculando a posicao da bola
-        if (distancia_mouse>=0.5f){
+        if (distancia_pos>=0.5f){
             x += dx * accel; y += dy * accel;
             //criando uma variacao de valores de 0 para 1 baseado na distancia e tamanho da tela
-            variacao_cor = distancia_mouse/(tam_tela_min/2);
+            variacao_cor = distancia_pos/(tam_tela_min/2);
         } else {
-            x = mouseX; y = mouseY;
-            variacao_cor = distancia_mouse/tam_tela_min;
+            x = pos_x; y = pos_y;
+            variacao_cor = distancia_pos/tam_tela_min;
         }
 
-        variacao_size = distancia_mouse/diagonal_tela;
+        variacao_size = distancia_pos/diagonal_tela;
         
         //noFill();
         fill(lerpColor(gradA_color, gradB_color, variacao_cor));
@@ -104,7 +113,7 @@ class Bola{
     }
 }
  public void formulaAccel_A(){
-    for (int i = (bolas.length-1); i > 1 ; --i) {
+    for (int i = 0; i < bolas.length; ++i) {
     bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
     }
 }
@@ -128,7 +137,14 @@ class Bola{
             background(128);
 }
 
- public void bolasseguirem(){
+ public void bolasseguiremA(){
+    //bolas que seguem    
+        for (int i = (bolas.length-1); i >= 0 ; --i) {
+        bolas[i].update();
+        }
+}
+
+ public void bolasseguiremB(){
     //bolas que seguem    
          for (int i = 0; i < bolas.length; ++i) {
         bolas[i].update();
@@ -139,6 +155,16 @@ class Bola{
     //bola mouse
         fill(main_color);
         ellipse(mouseX, mouseY, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+}
+
+ public void input_pos_aleatorio(){
+    pos_x=PApplet.parseInt(random(0,width));
+    pos_y=PApplet.parseInt(random(0,height));
+}
+
+ public void input_mouse(){
+    pos_x = mouseX;
+    pos_y = mouseY;
 }
 
 

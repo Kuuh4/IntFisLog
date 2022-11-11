@@ -1,5 +1,5 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[1000];
+Bola[] bolas = new Bola[5000];
 float varAccel = (2);
 int accelFormula = 1;
 
@@ -8,6 +8,8 @@ float diagonal_tela;
 int backgroundx;
 boolean switch_bg;
 
+int pos_x;
+int pos_y;
 
 color main_color = color(255, 255, 255);
 color gradA_color = color(255, 255, 255);
@@ -23,7 +25,7 @@ void setup() {
     backgroundx=0;
     
     //criação do objeto
-    formulaAccel_B();
+    formulaAccel_A();
     
     
     noCursor();
@@ -31,8 +33,15 @@ void setup() {
 }
 
 void draw() {
+
+    //input_mouse();
+    
     planodefundo();
-    bolasseguirem();
+    bolasseguiremA();
     bolamouse();
 
+}
+
+void mouseClicked(){
+    input_pos_aleatorio();
 }
