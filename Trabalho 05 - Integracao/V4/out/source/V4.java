@@ -30,6 +30,7 @@ int main_color = color(255, 255, 255);
 int gradA_color = color(255, 255, 255);
 int gradB_color = color(255, 0, 0);
 
+
  public void setup() {
     //size(500,400,P2D);
     /* size commented out by preprocessor */;
@@ -39,11 +40,7 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    if (accelFormula==1) {
-        for (int i = 0; i < bolas.length; ++i) {
-        bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
-    }    
-    }
+    formulaAccel_B();
     
     
     noCursor();
@@ -51,15 +48,11 @@ int gradB_color = color(255, 0, 0);
 }
 
  public void draw() {
-
     planodefundo();
-    bolamouse();
     bolasseguirem();
+    bolamouse();
 
-        //println(bolas[2].variacao_size);
 }
-
-
 class Bola{
     //variáveis declaradas
     float accel, diameter;
@@ -110,10 +103,21 @@ class Bola{
         ellipse(x, y, diameter*(1-variacao_size), diameter*(1-variacao_size));
     }
 }
+ public void formulaAccel_A(){
+    for (int i = (bolas.length-1); i > 1 ; --i) {
+    bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
+    }
+}
+
+ public void formulaAccel_B(){
+    for (int i = 0; i < bolas.length; ++i) {
+    bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
+    }
+}
  public void planodefundo(){
     //Planos de fundo
         //plano de fundo variável
-            if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
+            if(switch_bg==true){backgroundx++;}else{backgroundx--;}
             if(backgroundx<=0){ switch_bg = true;}
             if(backgroundx>=255){ switch_bg = false;}
 
@@ -122,8 +126,6 @@ class Bola{
         
         //plano de fundo simples
             background(128);
-
-
 }
 
  public void bolasseguirem(){
