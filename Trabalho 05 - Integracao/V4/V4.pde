@@ -1,5 +1,5 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[5000];
+Bola[] bolas = new Bola[100];
 float varAccel = (2);
 int accelFormula = 1;
 
@@ -38,7 +38,7 @@ void draw() {
     
     planodefundo();
     bolasseguiremA();
-    bolamouse();
+    //bolamouse();
 
 }
 

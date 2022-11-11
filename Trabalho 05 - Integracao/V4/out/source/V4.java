@@ -16,7 +16,7 @@ import java.io.IOException;
 public class V4 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[5000];
+Bola[] bolas = new Bola[200];
 float varAccel = (2);
 int accelFormula = 1;
 
@@ -55,7 +55,7 @@ int gradB_color = color(255, 0, 0);
     
     planodefundo();
     bolasseguiremA();
-    bolamouse();
+    //bolamouse();
 
 }
 
@@ -154,7 +154,7 @@ class Bola{
  public void bolamouse(){
     //bola mouse
         fill(main_color);
-        ellipse(mouseX, mouseY, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
 }
 
  public void input_pos_aleatorio(){
