@@ -1,8 +1,0 @@
-Hey! I'm trying to learn OOP. Everything's been going well so far, but got stuck with two minor issues
-
-  1st:
-I can't set the bubbles initial colors through the class parameter, idk why.
-2nd:
-All 3 objects, that are intended to get a random color each, with mousePressed(), get the exact same color in void pop().
-
-  Here's the following code:
