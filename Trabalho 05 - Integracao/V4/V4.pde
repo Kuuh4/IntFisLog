@@ -14,8 +14,8 @@ color gradA_color = color(255, 255, 255);
 color gradB_color = color(255, 0, 0);
 
 void setup() {
-    size(500,400);
-    //fullScreen();
+    //size(500,400);
+    fullScreen();
     
     diagonal_tela = dist(0,0,width,height);
     tam_tela_min = min(width,height);
@@ -33,13 +33,17 @@ void setup() {
 
 void draw() {
 
-    //plano de fundo variável
-        if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
-        if(backgroundx<=0){ switch_bg = true;}
-        if(backgroundx>=255){ switch_bg = false;}
+    //Planos de fundo
+        //plano de fundo variável
+            if(switch_bg==true){backgroundx++;}else{ backgroundx--;}
+            if(backgroundx<=0){ switch_bg = true;}
+            if(backgroundx>=255){ switch_bg = false;}
 
-        //println(switch_bg+" | "+backgroundx); //debug cor fundo
-        background(backgroundx,backgroundx,255-backgroundx);
+            //println(switch_bg+" | "+backgroundx); //debug cor fundo
+            //background(backgroundx,backgroundx,255-backgroundx);
+        
+        //plano de fundo simples
+            background(128);
 
     //bolas que seguem    
         b3.update();
@@ -50,5 +54,5 @@ void draw() {
     
     //bola mouse
         fill(main_color);
-        ellipse(mouseX, mouseY, b1.diameter*(1-b1.variacao_cor), b1.diameter*(1-b1.variacao_cor));
+        ellipse(mouseX, mouseY, b1.diameter*(1-b1.variacao_size), b1.diameter*(1-b1.variacao_size));
 }
