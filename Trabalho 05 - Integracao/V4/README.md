@@ -21,7 +21,7 @@
 <br>
 
 
-## Changelog ~~[feito posteriormente à V4, tá defasado]~~
+## Changelog ~~[feito posteriormente ao fim da V4, tá defasado]~~
 
 <br>
 
