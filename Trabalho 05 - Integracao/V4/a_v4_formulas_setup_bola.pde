@@ -5,8 +5,6 @@
 //Fórmulas de variação de aceleração para construtor de Bola() baseado na quantidade de bolas.
 
 
-
-
 void formulaAccel_A(){
     //Cada bola tem cada vez menos arracada     
         for (int i = 0; i < bolas.length; ++i) {

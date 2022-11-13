@@ -18,7 +18,7 @@ color gradB_color = color(255, 0, 0);
 
 void setup() {
     //size(500,400,P2D);
-    fullScreen(P2D);
+    //fullScreen(P2D);
     
     diagonal_tela = dist(0,0,width,height);
     tam_tela_min = min(width,height);

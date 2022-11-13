@@ -38,6 +38,7 @@
 >**Versão 4**
 * Array replica as bolas com gradação nos níveis de aceleração
   * Ordem de desenho das bolas foi invertida com sucesso, para as mais próximas do mouse serem desenhadas por cima (último)
+* Renomeados arquivos para melhor compreensão, e comentadas as funções.
 
 <br>
 <br>
