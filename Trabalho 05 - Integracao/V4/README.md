@@ -18,5 +18,17 @@
 ---
 
 - [ ] Integrar arduino com firmata.
+  - [ ] Botão `void random` 
+  - [ ] Sensores (2x potenciômetros) 
+
+<br>
 
 - [ ] Uma opção de trilha seria cada bola ter como target a bola anterior. Escrever como um void update2() alternativo
+
+`x = 4`{:.ruby}
+
+```java 
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+```
