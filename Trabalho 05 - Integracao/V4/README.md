@@ -50,7 +50,7 @@
 ## Terminologia Matemática
 <br>
 
-> $Arrancada = A(t) = {{\Delta a}\over{\Delta t}} = {({\Delta v})^2\over({\Delta t})^2} = {({\Delta x})^3\over({\Delta t})^3}$
+### $Arrancada = A(t) = {{\Delta a}\over{\Delta t}} = {({\Delta v})^2\over({\Delta t})^2} = {({\Delta x})^3\over({\Delta t})^3}$
 
 <br>
 
