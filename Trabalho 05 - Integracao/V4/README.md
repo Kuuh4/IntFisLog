@@ -57,7 +57,7 @@
 Termo|Símbolo|Formula|Conteúdo
 :---:|:---:|:---:|:---:
 **Tempo**|$t$ ou $\Delta t$|$t_{final}-t_{inicial}$|$tempo_{final}-tempo_{inicial}$
-**Deslocamento**|$\vec x$|$x_{final}-x_{inicial}$|${{pos._{inicial}}}-{{pos._{final}}}$|
+**Deslocamento**|$\vec x$|$x_{final}-x_{inicial}$|${pos.}_{inicial}-{pos.}_{final}$
 **Velocidade**|$v$|${\vec x}\over{\Delta t}$|$Deslocamento \over Tempo$
 **Aceleração**|$\overline{a}$|$\vec v \over t$ ou $v-v_0\over t$|$velocidade_{final}-velocidade_{inicial} \over \Delta tempo$
 **Arrancada**|$A$|${{\Delta a}\over{\Delta t}}$|${{accel_{final}-accel_{inicial}}\over{\Delta tempo}}$
