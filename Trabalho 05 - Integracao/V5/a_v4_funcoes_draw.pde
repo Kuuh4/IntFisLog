@@ -1,5 +1,20 @@
 // Funções do código principal
 
+//Bola que representa o mouse
+    
+    //V1 - tem o mesmo tamanho de bolas[0]
+    void bolamouse_1(){
+        fill(main_color);
+        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+    }
+    
+    //V0 - Tamanho Fixo
+    void bolamouse_0(){
+        fill(main_color);
+        ellipse(pos_x, pos_y, bolas[0].diameter, bolas[0].diameter);
+    }
+
+
 //Variações da função que desenha as bolas na tela a cada frame.
     
     //ESTRUTURA DO NOME DAS VARIANTES
@@ -7,33 +22,17 @@
             // Normal / invertido: Se referem à qual ordem as bolas são renderizadas
             // Versão do update: variações da função que determina o comportamento das bolas 
     
-    void bolasseguirem_normal_v1(){
-    // Bolas se desenham na ordem da mais longe do mouse para mais perto. 
-    //A bola desenhada + perto do mouse tá por cima   
-        for (int i = (bolas.length-1); i >= 0 ; --i) {
-        bolas[i].update_v1();
-        }
-    }
+    //V0
 
-    void bolasseguirem_inverso_v0(){
-        // Bolas se desenham na ordem da mais perto do mouse para mais longe. 
-        //A bola desenhada + longe do mouse tá por cima    
-            for (int i = 0; i < bolas.length; ++i) {
-            bolas[i].update_v0();
-        }
-    }
-    
     void bolasseguirem_normal_v0(){
-        // Bolas se desenham na ordem da mais longe do mouse para mais perto. 
-        //A bola desenhada + perto do mouse tá por cima   
+    
             for (int i = (bolas.length-1); i >= 0 ; --i) {
             bolas[i].update_v0();
             }
     }
 
     void bolasseguirem_inverso_v0(){
-        // Bolas se desenham na ordem da mais perto do mouse para mais longe. 
-        //A bola desenhada + longe do mouse tá por cima    
+    
             for (int i = 0; i < bolas.length; ++i) {
             bolas[i].update_v0();
         }
@@ -53,12 +52,6 @@ void planodefundo(){
             background(128);
 }
 
-
-void bolamouse(){
-    //bola mouse
-        fill(main_color);
-        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
-}
 
 void input_pos_aleatorio(){
     pos_x=int(random(0,width));

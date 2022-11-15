@@ -16,9 +16,8 @@ import java.io.IOException;
 public class V5 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[20];
-float varAccel = (2);
-int accelFormula = 1;
+Bola[] bolas = new Bola[5];
+
 
 float tam_tela_min;
 float diagonal_tela;
@@ -34,7 +33,9 @@ int gradB_color = color(255, 0, 0);
 
 
  public void setup() {
+    //size(300,300);
     /* size commented out by preprocessor */;
+
     //size(500,400,P2D);
     //fullScreen(P2D);
     
@@ -43,7 +44,7 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    formulaAccel_A();
+    formulaArrancada_B();
     
     
     noCursor();
@@ -56,7 +57,7 @@ int gradB_color = color(255, 0, 0);
     
     planodefundo();
     bolasseguirem_normal_v0();
-    bolamouse();
+    bolamouse_0();
 
 }
 
@@ -65,26 +66,33 @@ int gradB_color = color(255, 0, 0);
 }
 class Bola{
     //variáveis declaradas
-    float accel, diameter;
+    float arrancada, diameter;
     float x, y, dx, dy, targetx, targety, distancia_pos, variacao_cor, variacao_size;
 
 //constructors
-    Bola(float tempAccel){
+    Bola(float tempArrancada){
         //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
-        accel = tempAccel;
+        arrancada = tempArrancada;
         diameter = tam_tela_min/8;
       
     }
 
-    Bola(float tempAccel,float tempDiameter){
+    Bola(float tempArrancada,float tempDiameter){
         //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
-        accel = tempAccel;
+        arrancada = tempArrancada;
         diameter = tempDiameter;
     }
     
 
 //Functions
+
      public void update_v1(){
+
+        /* CHANGELOG V1
+
+            Alteração no comportamento do tamanho das bolas p/ exponencial
+
+        */
 
         //inicializando e usando as variáveis
         
@@ -94,9 +102,9 @@ class Bola{
         //calculando a distancia linear da bola ate o mouse
         distancia_pos = dist(pos_x,pos_y,x,y);
         
-        //calculando a posicao da bola
+        //calculando a posicao da bola / determinando o comportamento
         if (distancia_pos>=0.5f){
-            x += dx * accel; y += dy * accel;
+            x += dx * arrancada; y += dy * arrancada;
             //criando uma variacao de valores de 0 para 1 baseado na distancia e tamanho da tela
             variacao_cor = distancia_pos/(tam_tela_min/2);
         } else {
@@ -104,8 +112,20 @@ class Bola{
             variacao_cor = distancia_pos/tam_tela_min;
         }
 
-        variacao_size = distancia_pos/diagonal_tela;
         
+        /*
+        variação de tamanho de 0 à 1
+         (função em distância do alvo) / (max distancia do alvo) 
+        */
+        variacao_size = 
+        
+            distancia_pos 
+            
+            / 
+            
+            diagonal_tela;
+        
+
         //noFill();
         fill(lerpColor(gradA_color, gradB_color, variacao_cor));
 
@@ -125,7 +145,7 @@ class Bola{
         
         //calculando a posicao da bola
         if (distancia_pos>=0.5f){
-            x += dx * accel; y += dy * accel;
+            x += dx * arrancada; y += dy * arrancada;
             //criando uma variacao de valores de 0 para 1 baseado na distancia e tamanho da tela
             variacao_cor = distancia_pos/(tam_tela_min/2);
         } else {
@@ -149,22 +169,52 @@ class Bola{
 //Fórmulas de variação de aceleração para construtor de Bola() baseado na quantidade de bolas.
 
 
- public void formulaAccel_A(){
-    //Cada bola tem cada vez menos arracada     
+ public void formulaArrancada_A(){
+    //Cada vez menos arrancada linearmente   
         for (int i = 0; i < bolas.length; ++i) {
-            bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
+            bolas[i] = new Bola(
+                
+                //Função Logarítimica [ 1 / exponencial ]
+
+                    1
+                    /
+                    ( (pow(2, 2)) * (i+1) )
+                ) ;
         }
 }
 
 
- public void formulaAccel_B(){
-    
 
-    for (int i = 0; i < bolas.length; ++i) {
-        bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
-    }
+ public void formulaArrancada_B(){
+    //Cada vez menos arrancada         
+        for (int i = 0; i < bolas.length; ++i) {
+            bolas[i] = new Bola(
+                
+                //Função Logarítimica [ 1 / exponencial ]
+
+                    0.1f
+                    /
+                    pow(2,i)
+                
+                );
+        }
 }
 // Funções do código principal
+
+//Bola que representa o mouse
+    
+    //V1 - tem o mesmo tamanho de bolas[0]
+     public void bolamouse_1(){
+        fill(main_color);
+        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
+    }
+    
+    //V0 - Tamanho Fixo
+     public void bolamouse_0(){
+        fill(main_color);
+        ellipse(pos_x, pos_y, bolas[0].diameter, bolas[0].diameter);
+    }
+
 
 //Variações da função que desenha as bolas na tela a cada frame.
     
@@ -173,17 +223,17 @@ class Bola{
             // Normal / invertido: Se referem à qual ordem as bolas são renderizadas
             // Versão do update: variações da função que determina o comportamento das bolas 
     
+    //V0
+
      public void bolasseguirem_normal_v0(){
-        // Bolas se desenham na ordem da mais longe do mouse para mais perto. 
-        //A bola desenhada + perto do mouse tá por cima   
+    
             for (int i = (bolas.length-1); i >= 0 ; --i) {
             bolas[i].update_v0();
             }
     }
 
      public void bolasseguirem_inverso_v0(){
-        // Bolas se desenham na ordem da mais perto do mouse para mais longe. 
-        //A bola desenhada + longe do mouse tá por cima    
+    
             for (int i = 0; i < bolas.length; ++i) {
             bolas[i].update_v0();
         }
@@ -204,12 +254,6 @@ class Bola{
 }
 
 
- public void bolamouse(){
-    //bola mouse
-        fill(main_color);
-        ellipse(pos_x, pos_y, bolas[0].diameter*(1-bolas[0].variacao_size), bolas[0].diameter*(1-bolas[0].variacao_size));
-}
-
  public void input_pos_aleatorio(){
     pos_x=PApplet.parseInt(random(0,width));
     pos_y=PApplet.parseInt(random(0,height));
@@ -221,7 +265,7 @@ class Bola{
 }
 
 
-  public void settings() { size(300, 300); }
+  public void settings() { fullScreen(); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "V5" };

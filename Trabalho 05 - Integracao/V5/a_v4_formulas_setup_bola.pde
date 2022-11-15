@@ -5,18 +5,33 @@
 //Fórmulas de variação de aceleração para construtor de Bola() baseado na quantidade de bolas.
 
 
-void formulaAccel_A(){
-    //Cada bola tem cada vez menos arracada     
+void formulaArrancada_A(){
+    //Cada vez menos arrancada linearmente   
         for (int i = 0; i < bolas.length; ++i) {
-            bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
+            bolas[i] = new Bola(
+                
+                //Função Logarítimica [ 1 / exponencial ]
+
+                    1
+                    /
+                    ( (pow(2, 2)) * (i+1) )
+                ) ;
         }
 }
 
 
-void formulaAccel_B(){
-    
 
-    for (int i = 0; i < bolas.length; ++i) {
-        bolas[i] = new Bola((1/(sq(varAccel)))/(i+1));
-    }
+void formulaArrancada_B(){
+    //Cada vez menos arrancada         
+        for (int i = 0; i < bolas.length; ++i) {
+            bolas[i] = new Bola(
+                
+                //Função Logarítimica [ 1 / exponencial ]
+
+                    0.1
+                    /
+                    pow(2,i)
+                
+                );
+        }
 }
