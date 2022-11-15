@@ -1,5 +1,5 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[100];
+Bola[] bolas = new Bola[20];
 float varAccel = (2);
 int accelFormula = 1;
 
@@ -17,6 +17,7 @@ color gradB_color = color(255, 0, 0);
 
 
 void setup() {
+    size(300,300);
     //size(500,400,P2D);
     //fullScreen(P2D);
     
@@ -34,11 +35,11 @@ void setup() {
 
 void draw() {
 
-    //input_mouse();
+    input_mouse();
     
     planodefundo();
-    bolasseguiremA();
-    //bolamouse();
+    bolasseguirem_normal_v0();
+    bolamouse();
 
 }
 
