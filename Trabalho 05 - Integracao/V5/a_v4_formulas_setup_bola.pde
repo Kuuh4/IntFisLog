@@ -11,6 +11,9 @@ void formulaArrancada_Debug(){
     //Falta ainda fazer a escala de C, tal qual no outro gráfico, reduzir o valor máximo/da primeira bola
     //https://www.desmos.com/calculator/gjdupw0u3o
 
+    //esse aqui do grafico anterior ajudou variar o expoente menor que 1. parece servir!!
+    //https://www.desmos.com/calculator/cuvt2dbthx
+
     for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola(1);
         }

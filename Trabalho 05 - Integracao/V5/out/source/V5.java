@@ -16,7 +16,7 @@ import java.io.IOException;
 public class V5 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[50];
+Bola[] bolas = new Bola[2000];
 
 float var_arrancada = 0.5f;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
@@ -45,7 +45,7 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    formulaArrancada_D(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
+    formulaArrancada_A(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
     
     
     noCursor();
@@ -172,8 +172,12 @@ class Bola{
  public void formulaArrancada_Debug(){
     //fazer gráfico invertido modular em x tbm.
 
-    //fiz algum progresso na inversão. agora falta conseguir mover o cruzamento de todos os pontos na linha x de forma constante, sem depender do valor de X. 
-    //https://www.desmos.com/calculator/9t9p5xfscq
+    //Consegui inverter(Parte)!!! 
+    //Falta ainda fazer a escala de C, tal qual no outro gráfico, reduzir o valor máximo/da primeira bola
+    //https://www.desmos.com/calculator/gjdupw0u3o
+
+    //esse aqui do grafico anterior ajudou variar o expoente menor que 1. parece servir!!
+    //https://www.desmos.com/calculator/cuvt2dbthx
 
     for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola(1);
@@ -185,7 +189,7 @@ class Bola{
 
 
  public void formulaArrancada_D(){
-    //Cada vez menos arrancada linearmente
+    //Cada vez menos arrancada linearmente. Quanto mais bolas a última bola fica mais lenta
     //Alguns valores legais:
     //10 bolas, var arrancada 0.5   
         for (int i = 0; i < bolas.length; ++i) {
@@ -193,7 +197,7 @@ class Bola{
 
                         /*
                         gráficos interativos da modulação matemática
-                        https://www.desmos.com/calculator/dh7ydwox51
+                        https://www.desmos.com/calculator/fdc5ydw7re
                         
                         AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
                         Senão os valores são calculados como 0
