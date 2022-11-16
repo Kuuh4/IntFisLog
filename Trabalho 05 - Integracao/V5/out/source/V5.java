@@ -16,9 +16,9 @@ import java.io.IOException;
 public class V5 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[10];
+Bola[] bolas = new Bola[100];
 
-float var_arrancada;
+float var_arrancada = 0.2f;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
 float tam_tela_min;
 float diagonal_tela;
@@ -45,8 +45,7 @@ int gradB_color = color(255, 0, 0);
     backgroundx=0;
     
     //criação do objeto
-    float var_arrancada = 1;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
-    formulaArrancada_C(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
+    formulaArrancada_D(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
     
     
     noCursor();
@@ -59,7 +58,7 @@ int gradB_color = color(255, 0, 0);
     
     planodefundo();
     bolasseguirem_normal_v0();
-    bolamouse_0();
+    bolamouse_1();
 
 }
 
@@ -172,38 +171,49 @@ class Bola{
 //Fórmulas de variação de aceleração para construtor de Bola() baseado na quantidade de bolas.
 
  public void formulaArrancada_Debug(){
-    //Cada vez menos arrancada linearmente   
-        for (int i = 0; i < bolas.length; ++i) {
-            bolas[i] = new Bola(1/(2*(PApplet.parseFloat(i)+1)));
+    //fazer gráfico invertido modular em x tbm.
+
+    //https://www.desmos.com/calculator/9t9p5xfscq
+
+    for (int i = 0; i < bolas.length; ++i) {
+            bolas[i] = new Bola(1);
         }
+
 }
 
 
- public void formulaArrancada_C(){
+
+
+ public void formulaArrancada_D(){
     //Cada vez menos arrancada linearmente   
         for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola( 
 
-                            /*
-                            gráficos interativos da modulação matemática
-                            https://www.desmos.com/calculator/dh7ydwox51
-                            
-                            AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
-                            Senão os valores são calculados como 0
+                        /*
+                        gráficos interativos da modulação matemática
+                        https://www.desmos.com/calculator/dh7ydwox51
+                        
+                        AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
+                        Senão os valores são calculados como 0
 
-                            var_arrancada é um valor para alterar de 1 para baixo o valor máximo de arrancada
-                            
-                            Diferente dos outros, com esse a gente conseguiria ter o contole da arrancada mínima e máxima
-                            
-                            */
-                            1
-                            
-                                                
-                            );
-            println((((1/(10+1))*(-((PApplet.parseFloat(i))+1)))+1)*var_arrancada);
+                        var_arrancada é um valor para alterar de 1 para baixo o valor máximo de arrancada
+                        
+                        Diferente dos outros, com esse a gente conseguiria ter o contole da arrancada mínima e máxima
+                        
+                        */
+                
+                        ((((1/(PApplet.parseFloat(bolas.length)+1))*(-((PApplet.parseFloat(i))+1)))+1)*(var_arrancada))
+                                            
+                        );
         }
 }
 
+ public void formulaArrancada_C(){
+    //Cada vez menos arrancada linearmente   
+        for (int i = 0; i < bolas.length; ++i) {
+            bolas[i] = new Bola(var_arrancada/(2*(PApplet.parseFloat(i)+1)));
+        }
+}
 
  public void formulaArrancada_B(){
     //Cada vez menos arrancada         
@@ -212,7 +222,7 @@ class Bola{
                 
                 //Função Logarítimica [ 1 / exponencial ]
 
-                    0.1f
+                    var_arrancada
                     /
                     pow(2,i)
                 

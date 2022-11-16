@@ -1,7 +1,7 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[10];
+Bola[] bolas = new Bola[100];
 
-float var_arrancada;
+float var_arrancada = 0.2;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
 float tam_tela_min;
 float diagonal_tela;
@@ -28,8 +28,7 @@ void setup() {
     backgroundx=0;
     
     //criação do objeto
-    float var_arrancada = 1;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
-    formulaArrancada_C(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
+    formulaArrancada_D(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
     
     
     noCursor();
@@ -42,7 +41,7 @@ void draw() {
     
     planodefundo();
     bolasseguirem_normal_v0();
-    bolamouse_0();
+    bolamouse_1();
 
 }
 
