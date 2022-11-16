@@ -1,7 +1,7 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[100];
+Bola[] bolas = new Bola[50];
 
-float var_arrancada = 0.2;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
+float var_arrancada = 0.5;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
 float tam_tela_min;
 float diagonal_tela;
@@ -17,11 +17,11 @@ color gradB_color = color(255, 0, 0);
 
 
 void setup() {
-    size(300,300);
+    //size(300,300);
     //fullScreen();
 
     //size(500,400,P2D);
-    //fullScreen(P2D);
+    fullScreen(P2D);
     
     diagonal_tela = dist(0,0,width,height);
     tam_tela_min = min(width,height);

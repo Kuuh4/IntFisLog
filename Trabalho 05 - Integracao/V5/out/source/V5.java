@@ -16,9 +16,9 @@ import java.io.IOException;
 public class V5 extends PApplet {
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[100];
+Bola[] bolas = new Bola[50];
 
-float var_arrancada = 0.2f;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
+float var_arrancada = 0.5f;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
 float tam_tela_min;
 float diagonal_tela;
@@ -34,11 +34,11 @@ int gradB_color = color(255, 0, 0);
 
 
  public void setup() {
-    /* size commented out by preprocessor */;
+    //size(300,300);
     //fullScreen();
 
     //size(500,400,P2D);
-    //fullScreen(P2D);
+    /* size commented out by preprocessor */;
     
     diagonal_tela = dist(0,0,width,height);
     tam_tela_min = min(width,height);
@@ -75,7 +75,6 @@ class Bola{
         //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
         arrancada = tempArrancada;
         diameter = tam_tela_min/8;
-        //println(tempArrancada);
       
     }
 
@@ -173,6 +172,7 @@ class Bola{
  public void formulaArrancada_Debug(){
     //fazer gráfico invertido modular em x tbm.
 
+    //fiz algum progresso na inversão. agora falta conseguir mover o cruzamento de todos os pontos na linha x de forma constante, sem depender do valor de X. 
     //https://www.desmos.com/calculator/9t9p5xfscq
 
     for (int i = 0; i < bolas.length; ++i) {
@@ -185,7 +185,9 @@ class Bola{
 
 
  public void formulaArrancada_D(){
-    //Cada vez menos arrancada linearmente   
+    //Cada vez menos arrancada linearmente
+    //Alguns valores legais:
+    //10 bolas, var arrancada 0.5   
         for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola( 
 
@@ -309,7 +311,7 @@ class Bola{
 }
 
 
-  public void settings() { size(300, 300); }
+  public void settings() { fullScreen(P2D); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "V5" };

@@ -20,13 +20,15 @@ void formulaArrancada_Debug(){
 
 
 void formulaArrancada_D(){
-    //Cada vez menos arrancada linearmente   
+    //Cada vez menos arrancada linearmente. Quanto mais bolas a última bola fica mais lenta
+    //Alguns valores legais:
+    //10 bolas, var arrancada 0.5   
         for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola( 
 
                         /*
                         gráficos interativos da modulação matemática
-                        https://www.desmos.com/calculator/dh7ydwox51
+                        https://www.desmos.com/calculator/rxm4dqbf4g
                         
                         AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
                         Senão os valores são calculados como 0
