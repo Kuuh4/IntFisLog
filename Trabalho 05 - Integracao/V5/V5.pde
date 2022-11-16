@@ -1,5 +1,5 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[50];
+Bola[] bolas = new Bola[20];
 
 float var_arrancada = 0.5;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
 
@@ -28,7 +28,7 @@ void setup() {
     backgroundx=0;
     
     //criação do objeto
-    formulaArrancada_D(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
+    formulaArrancada_A(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
     
     
     noCursor();
