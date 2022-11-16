@@ -7,8 +7,9 @@
 void formulaArrancada_Debug(){
     //fazer gráfico invertido modular em x tbm.
 
-    //fiz algum progresso na inversão. agora falta conseguir mover o cruzamento de todos os pontos na linha x de forma constante, sem depender do valor de X. 
-    //https://www.desmos.com/calculator/9t9p5xfscq
+    //Consegui inverter(Parte)!!! 
+    //Falta ainda fazer a escala de C, tal qual no outro gráfico, reduzir o valor máximo/da primeira bola
+    //https://www.desmos.com/calculator/gjdupw0u3o
 
     for (int i = 0; i < bolas.length; ++i) {
             bolas[i] = new Bola(1);
@@ -28,7 +29,7 @@ void formulaArrancada_D(){
 
                         /*
                         gráficos interativos da modulação matemática
-                        https://www.desmos.com/calculator/rxm4dqbf4g
+                        https://www.desmos.com/calculator/fdc5ydw7re
                         
                         AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
                         Senão os valores são calculados como 0
