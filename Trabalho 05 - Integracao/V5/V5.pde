@@ -1,6 +1,7 @@
 //declaração os usos da classe nova (pra alocar as variáveis delas)
-Bola[] bolas = new Bola[5];
+Bola[] bolas = new Bola[10];
 
+float var_arrancada;
 
 float tam_tela_min;
 float diagonal_tela;
@@ -16,8 +17,8 @@ color gradB_color = color(255, 0, 0);
 
 
 void setup() {
-    //size(300,300);
-    fullScreen();
+    size(300,300);
+    //fullScreen();
 
     //size(500,400,P2D);
     //fullScreen(P2D);
@@ -27,7 +28,8 @@ void setup() {
     backgroundx=0;
     
     //criação do objeto
-    formulaArrancada_B();
+    float var_arrancada = 1;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
+    formulaArrancada_C(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
     
     
     noCursor();

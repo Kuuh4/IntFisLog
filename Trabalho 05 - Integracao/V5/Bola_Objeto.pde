@@ -8,6 +8,7 @@ class Bola{
         //conversão da variável de argumento (temporária) para uma variável de fato (inicializando ela)
         arrancada = tempArrancada;
         diameter = tam_tela_min/8;
+        //println(tempArrancada);
       
     }
 
