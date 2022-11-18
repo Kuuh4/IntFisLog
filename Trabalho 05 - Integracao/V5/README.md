@@ -1,4 +1,21 @@
->>>Comentários Internos
+Entregar V1 na Tarefa 5
+https://classroom.google.com/u/0/c/NTM4MDk4Mzk2Mjk3/a/NDkxNDU2MDQ3Mzgz/details
+
+Entregar V3-V5 na Tarefa 6 (Proposta de G2)
+
+
+>Arduino Esplora   
+  https://docs.arduino.cc/retired/archived-libraries/EsploraLibrary
+>> Case: https://www.thingiverse.com/thing:45880
+
+>Firmata   
+  https://docs.arduino.cc/hacking/software/FirmataLibrary
+
+<br>
+
+## Comentários Internos
+
+<br>
 
 **Anotações [para fazer??]**
 
