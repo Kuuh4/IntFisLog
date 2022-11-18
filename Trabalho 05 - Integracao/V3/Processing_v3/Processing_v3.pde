@@ -5,7 +5,8 @@ Bola b2;
 Bola b3;
 
 void setup() {
-    size(400,400);
+    fullScreen();
+    //size(400,400);
     //criação do objeto
     b1 = new Bola(0.05);
     b2 = new Bola(0.04);
