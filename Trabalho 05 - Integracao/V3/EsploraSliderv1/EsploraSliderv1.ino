@@ -3,17 +3,12 @@
 #include <Esplora.h>
 // https://docs.arduino.cc/retired/archived-libraries/EsploraLibrary
 
-#include <Mouse.h>
-
 int modo = 0;
 
 void setup()
 {
   Serial.begin(9600); 
   AbsMouse.init(1920, 1080);
-  Mouse.begin();
-
-
   int valueY = 0;
 }
 
@@ -23,55 +18,67 @@ void loop()
 
     int button = Esplora.readButton(1); 
   
-      if (button == 0)  {
-        modo = 1;
-        Esplora.writeRGB(255, 0, 0);
-        delay(100);
-      }
+    if (button == 0)  {
+      modo = 1;
+      Esplora.writeRGB(255, 255, 0);
+      delay(200);
+    }
 
-      int valueX = (1023-Esplora.readSlider()) +448;     
-      int valueY = (Esplora.readJoystickY()) +512;
-      AbsMouse.move(valueX, valueY); 
+    if (Esplora.readButton(4) == 0) {                           // if the joystick button is pressed
+      AbsMouse.press(MOUSE_LEFT);                             // send a mouse click
+    } else {
+      AbsMouse.release(MOUSE_LEFT);                          // if it's not pressed, release the mouse button 
+    }
+
+
+    int valueX = map(Esplora.readSlider(),0,1023,1920,0);     
+      
+    int yValue = Esplora.readJoystickY();
+    int mouseY = mouseY + map(yValue, -512, 512, -30, 30);
+    AbsMouse.move(valueX, mouseY);
+
+
       
       delay(20);
   }
 
-  for(;modo == 1;){
-        
-      int button = Esplora.readButton(1); 
+for(;modo == 1;){
+      
+    int button = Esplora.readButton(1); 
 
-        if (button == 0)  {
-          modo = 2;   
-          Esplora.writeRGB(0, 255, 0);
-          delay(100);
-        }
-        delay(100);
+    if (button == 0)  {
+      modo = 0;   
+      Esplora.writeRGB(255, 0, 0);
+      delay(120);
+    }
+       
+    if (Esplora.readButton(4) == 0) {                           // if the joystick button is pressed
+      AbsMouse.press(MOUSE_LEFT);                             // send a mouse click
+    } else {
+      AbsMouse.release(MOUSE_LEFT);                          // if it's not pressed, release the mouse button 
     }
 
-    for(;modo == 2;){
-        
-      int button = Esplora.readButton(1); 
+      
+    int xValue = Esplora.readJoystickX();
+    int yValue = Esplora.readJoystickY();
+    int mouseY = mouseY + map(yValue, -512, 512, -30, 30);
+    int mouseX = mouseX + map(xValue, -512, 512, 30, -30);
+    if(mouseX > 1920){mouseX=1919;}
+    if(mouseX < 0){mouseX=0;}
+    if(mouseY > 1080){mouseY=1080;}
+    if(mouseY < 0){mouseY=1;}
+    AbsMouse.move(mouseX, mouseY);
 
-        if (button == 0)  {
-          modo = 0;   
-          Esplora.writeRGB(0, 255, 255);
-          delay(100);
-        }
+  Serial.print(mouseX);
 
-        int xValue = Esplora.readJoystickX();        // read the joystick's X position
-        int yValue = Esplora.readJoystickY();  
-        int mouseX = map(xValue, -512, 512, 10, -10);  // map the X value to a range of movement for the mouse X
-        int mouseY = map(yValue, -512, 512, -10, 10);
-        Mouse.move(mouseX, mouseY, 0); 
+    delay(20);
+  
+  
+  
+  
+  }
 
-          if (Esplora.readButton(4) == 0) {                           // if the joystick button is pressed
-            Mouse.press();                             // send a mouse click
-          } else {
-            Mouse.release();                           // if it's not pressed, release the mouse button 
-          }
 
-        delay(20);
-    }
 
 
 }

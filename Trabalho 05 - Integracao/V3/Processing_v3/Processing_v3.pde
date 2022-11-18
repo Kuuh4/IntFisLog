@@ -5,7 +5,7 @@ Bola b2;
 Bola b3;
 
 void setup() {
-    fullScreen();
+    fullScreen(P2D);
     //size(400,400);
     //criação do objeto
     b1 = new Bola(0.05);
@@ -14,6 +14,7 @@ void setup() {
 
     fill(255);
     noStroke();
+    noCursor();
 
 }
 
