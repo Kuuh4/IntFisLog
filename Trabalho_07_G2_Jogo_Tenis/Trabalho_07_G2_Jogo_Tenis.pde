@@ -1,7 +1,13 @@
+
+
+
 void setup(){
 size(500,500,P3D);
 
 noStroke();
+
+
+rectMode(CENTER);
 }
 
 void draw(){
@@ -9,15 +15,19 @@ void draw(){
   background(128);
   //lights();
   
-  
-  
-  push();
-  translate(mouseX,mouseY,mouseY);
-  sphere(10);
+
+  pushCena_jogo(); 
+  //pushCena_cima(); 
+
+    
+    chao();
+    bola01();
+    chao_meio();
+    
+
   pop();
-  
-  println("");
-  
-  
+
+
+ 
   
 }
