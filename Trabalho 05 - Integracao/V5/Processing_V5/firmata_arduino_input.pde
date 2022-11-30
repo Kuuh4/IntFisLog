@@ -1,5 +1,4 @@
-import cc.arduino.*;
-import org.firmata.*;
+Arduino arduino;
 
     void verificarPortaSerial(){
         //a linha abaixo vai imprimir uma lista de portas seriais disponíveis

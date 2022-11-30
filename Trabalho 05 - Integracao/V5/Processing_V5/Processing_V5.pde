@@ -1,3 +1,10 @@
+//bibliotecas necessárias
+import processing.serial.*; //usado para ler as portas seriais p definir qual é o USB do arduino
+import cc.arduino.*; //usada para criar objeto arduino p/ firmata
+import org.firmata.*; //usada para se comunicar com o arduino com firmata dentro dele
+
+
+
 //declaração os usos da classe nova (pra alocar as variáveis delas)
 Bola[] bolas = new Bola[20];
 
@@ -17,6 +24,9 @@ color gradB_color = color(255, 0, 0);
 
 
 void setup() {
+  
+    verificarPortaSerial();
+    
     //size(300,300);
     //fullScreen();
 
