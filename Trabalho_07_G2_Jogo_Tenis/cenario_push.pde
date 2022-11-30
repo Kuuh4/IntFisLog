@@ -3,12 +3,13 @@
 
 
 //funções
+
     void pushCena_jogo(){
         
         push();
 
             //translate do cenário.
-            translate(width/2, height/2, 0);
+            translate(width/2, height/2, -width/5);
             rotateX(PI/2.5);
 
     }
@@ -38,12 +39,40 @@
 
     }
 
+        void personagemA(){    
+    
+        noStroke();
+        fill(255);
+
+            push();
+
+                translate(mouseX-width/2,650,50);
+                box(30,30,100);
+
+            pop();
+
+    }
+
+        void personagemB(){    
+    
+        noStroke();
+        fill(255);
+
+            push();
+
+                translate(mouseX-width/2,-650,50);
+                box(30,30,100);
+
+            pop();
+
+    }
+
     void chao(){
         
         fill(51);
         stroke(255);
 
-            rect( 0, 0, width-20, height-20);
+            rect( 0, 0, height-20, height-20);
             
 
     }

@@ -21,6 +21,7 @@ public class Trabalho_07_G2_Jogo_Tenis extends PApplet {
  public void setup(){
 
 //size(500,500,P3D);
+//size(800,800,P3D);
 /* size commented out by preprocessor */;
 
 noStroke();
@@ -34,13 +35,14 @@ rectMode(CENTER);
   background(128);
   //lights();
   
-
+  //cameraCena_Jogo();
   pushCena_jogo(); 
   //pushCena_cima(); 
-
     
     chao();
     bola01();
+    personagemA();
+    personagemB();
     chao_meio();
     
 
@@ -50,17 +52,49 @@ rectMode(CENTER);
  
   
 }
+    
+    
+    
+    
+    
+     public void cameraCena_Jogo(){
+        //camera simples de trás do jogador
+        //camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
+        camera(0, 0, 100, 100, 100, 0, 0, 0, 0);
+    }
+
+     public void cameraCena_Cime(){
+        //fazer a camera de cima
+    }
+
+     public void cenario_Quadra(){
+        //desenhar de forma simples e absoluta o seguinte:
+        // - As paredes de fundo de cenário (dos lados e no fundo atrás do oponente)
+        // - O chão de fora
+        // - O chão da quadra
+        // - A linha de meio
+
+      
+        
+    }
+
+     public void jogadores_Quadra(){
+        //desenhar ambos jogadores, nas duas extremidades da quadra
+
+        
+    }
 //variaveis do cenário
 
 
 
 //funções
+
      public void pushCena_jogo(){
         
         push();
 
             //translate do cenário.
-            translate(width/2, height/2, 0);
+            translate(width/2, height/2, -width/5);
             rotateX(PI/2.5f);
 
     }
@@ -90,12 +124,40 @@ rectMode(CENTER);
 
     }
 
+         public void personagemA(){    
+    
+        noStroke();
+        fill(255);
+
+            push();
+
+                translate(mouseX-width/2,650,50);
+                box(30,30,100);
+
+            pop();
+
+    }
+
+         public void personagemB(){    
+    
+        noStroke();
+        fill(255);
+
+            push();
+
+                translate(mouseX-width/2,-650,50);
+                box(30,30,100);
+
+            pop();
+
+    }
+
      public void chao(){
         
         fill(51);
         stroke(255);
 
-            rect( 0, 0, width-20, height-20);
+            rect( 0, 0, height-20, height-20);
             
 
     }
