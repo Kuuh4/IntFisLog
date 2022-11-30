@@ -6,3 +6,5 @@ Arduino arduino;
         printArray(Arduino.list());
         arduino = new Arduino(this, Arduino.list()[0], 57600); //colocar aqui a porta serial
     }
+
+    
