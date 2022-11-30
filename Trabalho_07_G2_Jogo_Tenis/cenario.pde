@@ -30,7 +30,7 @@
 
             push();
 
-                translate(mouseX-width/2,mouseY-height/2,0);
+                translate(mouseX-width/2,mouseY-height/2,30);
                 //sphere(10);
                 box(10);
 
