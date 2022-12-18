@@ -1,3 +1,5 @@
+//OBJETO BOLA A SER INSTANCIADO, REPLICADO, ETC.
+
 class Bola{
     //variáveis declaradas
     float arrancada, diameter;

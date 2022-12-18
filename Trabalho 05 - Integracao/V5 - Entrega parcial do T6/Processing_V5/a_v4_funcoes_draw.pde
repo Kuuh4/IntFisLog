@@ -58,6 +58,7 @@ void input_pos_aleatorio(){
     pos_y=int(random(0,height));
 }
 
+//TROCAR AQUI QUANDO CONSEGUIR IMPLEMENTAR A COMUNICAÇÃO SERIAL DIRETA
 void input_mouse(){
     pos_x = mouseX;
     pos_y = mouseY;

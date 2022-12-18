@@ -6,6 +6,7 @@ import org.firmata.*; //usada para se comunicar com o arduino com firmata dentro
 
 
 //declaração os usos da classe nova (pra alocar as variáveis delas)
+//INSERIR QUANTIDADE DE BOLAS EM new Bola[NUMERO]
 Bola[] bolas = new Bola[20];
 
 float var_arrancada = 0.3;//escrever esse valor como um valor de 0=>1, sendo que ele vai ser o maior valor da arrancada
@@ -25,7 +26,7 @@ color gradB_color = color(255, 0, 0);
 
 void setup() {
   
-    //Ativar comando abaixo caso vá conectar com arduino.
+    //ATIVAR COMANDO ABAIXO CASO VÁ CONECTAR COM ARDUINO. [se não for, trava o programa.]
     //verificarPortaSerial();
     
     //size(300,300);
@@ -38,9 +39,12 @@ void setup() {
     tam_tela_min = min(width,height);
     backgroundx=0;
     
-    //criação do objeto
-    formulaArrancada_D(); //escolher a formula de arrancada. tem a _A _B e _Debug atualmente
-    
+    //criação do objeto //ESCOLHER A FÓRMULA DE ARRANCADA. tem a _A _B _C _D e _Debug atualmente
+    formulaArrancada_A();
+    //formulaArrancada_B();
+    //formulaArrancada_C();
+    //formulaArrancada_D(); 
+    //formulaArrancada_Debug();
     
     noCursor();
     noStroke();
@@ -48,6 +52,7 @@ void setup() {
 
 void draw() {
 
+    //DESATIVAR input_mouse() CASO FOR EXPERIMENTAR void mouseClicked()
     input_mouse();
     
     planodefundo();

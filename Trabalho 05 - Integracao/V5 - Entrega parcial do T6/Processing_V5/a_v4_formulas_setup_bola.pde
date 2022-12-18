@@ -31,7 +31,7 @@ void formulaArrancada_D(){
             bolas[i] = new Bola( 
 
                         /*
-                        gráficos interativos da modulação matemática
+                        gráficos interativos feitos da modulação matemática
                         https://www.desmos.com/calculator/fdc5ydw7re
                         
                         AS VARIAVEIS i e bolas.length SÃO INT, TEM QUE COLOCAR ELAS DENTRO DO float(int)
