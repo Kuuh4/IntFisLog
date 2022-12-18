@@ -25,7 +25,8 @@ color gradB_color = color(255, 0, 0);
 
 void setup() {
   
-    verificarPortaSerial();
+    //Ativar comando abaixo caso vá conectar com arduino.
+    //verificarPortaSerial();
     
     //size(300,300);
     //fullScreen();

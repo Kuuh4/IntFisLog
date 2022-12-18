@@ -1,4 +1,5 @@
-Arduino arduino;
+
+ Arduino arduino;
 
     void verificarPortaSerial(){
         //a linha abaixo vai imprimir uma lista de portas seriais disponíveis
@@ -6,5 +7,3 @@ Arduino arduino;
         printArray(Arduino.list());
         arduino = new Arduino(this, Arduino.list()[0], 57600); //colocar aqui a porta serial
     }
-
-    
