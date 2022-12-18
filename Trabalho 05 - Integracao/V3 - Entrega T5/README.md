@@ -2,7 +2,7 @@
 
 > Versão para T5 (G2)
 
-Invegração com Arduino Esplora - Mouse/Joystick.
+Invegração com Arduino Esplora - Joystick/Slider via Mouse.
 
 
 Bolas Instanciadas como objeto, mas sem array.
