@@ -7,3 +7,5 @@ Foram utilizados principalmente:
 * Markdown
 
 O principal aprendizado nesse processo foi a compreensão e exploração do potencial da programação orientada à objeto, para além de experimentar de forma mais apropriada programação visual, e de rever e consolidar conhecimentos em torno do Arduino.
+
+Também vale ressaltar o aprendizado com organizar sequências de projetos e suas versões, e sua respectiva documentação.
